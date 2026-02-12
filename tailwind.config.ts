@@ -15,7 +15,7 @@ export default {
   	extend: {
   		fontFamily: {
   			sans: [
-  				'Space Grotesk',
+  				'DM Sans',
   				'ui-sans-serif',
   				'system-ui',
   				'-apple-system',
@@ -28,7 +28,7 @@ export default {
   				'sans-serif'
   			],
   			serif: [
-  				'Lora',
+  				'Crimson Pro',
   				'ui-serif',
   				'Georgia',
   				'Cambria',
@@ -37,7 +37,7 @@ export default {
   				'serif'
   			],
   			mono: [
-  				'Space Mono',
+  				'SF Mono',
   				'ui-monospace',
   				'SFMono-Regular',
   				'Menlo',
@@ -178,7 +178,7 @@ export default {
   					opacity: '1'
   				}
   			},
-  			'glow': {
+  			glow: {
   				'0%, 100%': {
   					boxShadow: '0 0 20px hsl(43 96% 56% / 0.3)'
   				},
@@ -186,7 +186,7 @@ export default {
   					boxShadow: '0 0 40px hsl(43 96% 56% / 0.5)'
   				}
   			},
-  			'float': {
+  			float: {
   				'0%, 100%': {
   					transform: 'translateY(0)'
   				},
@@ -202,8 +202,8 @@ export default {
   			'fade-in-up': 'fade-in-up 0.6s ease-out',
   			'slide-in-right': 'slide-in-right 0.4s ease-out',
   			'scale-in': 'scale-in 0.3s ease-out',
-  			'glow': 'glow 2s ease-in-out infinite',
-  			'float': 'float 3s ease-in-out infinite'
+  			glow: 'glow 2s ease-in-out infinite',
+  			float: 'float 3s ease-in-out infinite'
   		}
   	}
   },
