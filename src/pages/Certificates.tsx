@@ -89,9 +89,9 @@ export default function Certificates() {
             </span>
             <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
               Your Roadmap to{' '}
-              <span className="bg-gradient-to-r from-amber-500 to-yellow-500 bg-clip-text text-transparent">
-                Trading Excellence
-              </span>
+               <span className="text-accent">
+                 Trading Excellence
+               </span>
             </h1>
             <p className="text-xl text-muted-foreground">
               Earn industry-recognized certifications that validate your trading expertise and open doors to professional opportunities.
@@ -165,8 +165,8 @@ export default function Certificates() {
                 >
                   <div className={`md:flex items-center gap-8 ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}>
                     {/* Step number */}
-                    <div className="absolute left-8 md:left-1/2 -translate-x-1/2 w-16 h-16 rounded-full bg-gradient-to-br from-amber-500 to-yellow-500 flex items-center justify-center shadow-gold z-10">
-                      <span className="text-2xl font-bold text-slate-900">{milestone.step}</span>
+                     <div className="absolute left-8 md:left-1/2 -translate-x-1/2 w-16 h-16 rounded-full bg-accent flex items-center justify-center shadow-gold z-10">
+                       <span className="text-2xl font-bold text-accent-foreground">{milestone.step}</span>
                     </div>
 
                     {/* Content */}
@@ -206,12 +206,12 @@ export default function Certificates() {
                 transition={{ duration: 0.5, delay: 0.5 }}
                 className="relative"
               >
-                <div className="absolute left-8 md:left-1/2 -translate-x-1/2 w-20 h-20 rounded-full bg-gradient-to-br from-amber-400 to-yellow-500 flex items-center justify-center shadow-gold z-10">
-                  <Sparkles className="w-10 h-10 text-slate-900" />
-                </div>
+                 <div className="absolute left-8 md:left-1/2 -translate-x-1/2 w-20 h-20 rounded-full bg-accent flex items-center justify-center shadow-gold z-10">
+                   <Sparkles className="w-10 h-10 text-accent-foreground" />
+                 </div>
 
                 <div className="pl-24 md:pl-0 md:max-w-lg md:mx-auto md:text-center md:pt-6">
-                  <div className="glass-card rounded-2xl p-8 bg-gradient-to-br from-amber-500/10 to-yellow-500/10 border border-accent/30">
+                  <div className="glass-card rounded-2xl p-8 bg-accent/10 border border-accent/30">
                     <h3 className="text-2xl font-bold mb-2">First Million Trader</h3>
                     <p className="text-muted-foreground mb-4">
                       Complete all certifications and join the elite community of professional traders.

@@ -117,9 +117,9 @@ export default function Contact() {
             </span>
             <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
               Let's Start Your{' '}
-              <span className="bg-gradient-to-r from-amber-500 to-yellow-500 bg-clip-text text-transparent">
-                Trading Journey
-              </span>
+               <span className="text-accent">
+                 Trading Journey
+               </span>
             </h1>
             <p className="text-xl text-muted-foreground">
               Have questions? We'd love to hear from you. Send us a message and we'll respond as soon as possible.

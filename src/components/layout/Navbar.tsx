@@ -69,8 +69,8 @@ export default function Navbar() {
               whileHover={{ scale: 1.05 }}
               className="relative"
             >
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-amber-400 to-amber-600 flex items-center justify-center shadow-gold">
-                <span className="text-xl font-bold text-slate-900">FM</span>
+              <div className="w-12 h-12 rounded-xl bg-accent flex items-center justify-center shadow-gold">
+                <span className="text-xl font-bold text-accent-foreground">FM</span>
               </div>
             </motion.div>
             <div className="hidden sm:block">
@@ -93,7 +93,7 @@ export default function Navbar() {
                   className={cn(
                     "px-4 py-2 rounded-lg font-medium transition-all duration-300 flex items-center gap-1",
                     location.pathname === link.path
-                      ? "text-amber-500"
+                      ? "text-accent"
                       : "text-foreground/80 hover:text-foreground hover:bg-accent/50"
                   )}
                 >
@@ -142,7 +142,7 @@ export default function Navbar() {
                     animate={{ rotate: 0, opacity: 1 }}
                     exit={{ rotate: 90, opacity: 0 }}
                   >
-                    <Sun className="w-5 h-5 text-amber-400" />
+                    <Sun className="w-5 h-5 text-accent" />
                   </motion.div>
                 ) : (
                   <motion.div
@@ -205,8 +205,8 @@ export default function Navbar() {
                       className={cn(
                         "block px-4 py-3 rounded-lg font-medium transition-all",
                         location.pathname === link.path
-                          ? "bg-amber-500/10 text-amber-500"
-                          : "text-foreground/80 hover:bg-accent/50"
+                           ? "bg-accent/10 text-accent"
+                          : "text-foreground/80 hover:bg-muted/50"
                       )}
                     >
                       {link.name}

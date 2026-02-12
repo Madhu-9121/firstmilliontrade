@@ -52,7 +52,7 @@ export default function HeroSection() {
           >
             Master the Markets,{' '}
             <span className="relative">
-              <span className="relative z-10 bg-gradient-to-r from-accent to-secondary bg-clip-text text-transparent">
+              <span className="relative z-10 text-accent">
                 Build Your First Million
               </span>
               <motion.span

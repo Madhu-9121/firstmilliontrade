@@ -50,7 +50,7 @@ export default function CertificatePath() {
             </span>
             <h2 className="font-serif text-4xl md:text-5xl font-bold mb-6">
               Your Roadmap to{' '}
-              <span className="bg-gradient-to-r from-amber-500 to-yellow-500 bg-clip-text text-transparent">
+              <span className="text-accent">
                 Financial Freedom
               </span>
             </h2>
@@ -115,8 +115,8 @@ export default function CertificatePath() {
                   className="relative pl-16 md:pl-20"
                 >
                   {/* Step number */}
-                  <div className="absolute left-0 w-12 h-12 rounded-full bg-gradient-to-br from-amber-500 to-yellow-500 flex items-center justify-center shadow-gold">
-                    <span className="text-lg font-bold text-slate-900">{milestone.step}</span>
+                   <div className="absolute left-0 w-12 h-12 rounded-full bg-accent flex items-center justify-center shadow-gold">
+                     <span className="text-lg font-bold text-accent-foreground">{milestone.step}</span>
                   </div>
 
                   {/* Card */}
@@ -140,7 +140,7 @@ export default function CertificatePath() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.5 }}
-              className="mt-8 ml-16 md:ml-20 p-6 rounded-xl bg-gradient-to-r from-amber-500/10 to-yellow-500/10 border border-accent/30"
+              className="mt-8 ml-16 md:ml-20 p-6 rounded-xl bg-accent/10 border border-accent/30"
             >
               <div className="flex items-center gap-3">
                 <CheckCircle2 className="w-8 h-8 text-accent" />

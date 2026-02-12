@@ -52,7 +52,7 @@ const services = [
     title: 'Certification',
     description: 'Industry-recognized certifications to validate your trading expertise.',
     link: '/certificates',
-    gradient: 'from-amber-500 to-yellow-500',
+    gradient: 'from-accent to-secondary',
   },
 ];
 
@@ -95,9 +95,9 @@ export default function ServicesSection() {
           </span>
           <h2 className="font-serif text-4xl md:text-5xl font-bold mb-4">
             Everything You Need to{' '}
-            <span className="bg-gradient-to-r from-amber-500 to-yellow-500 bg-clip-text text-transparent">
-              Succeed
-            </span>
+             <span className="text-accent">
+               Succeed
+             </span>
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
             From foundational education to advanced strategies, we provide comprehensive solutions for your trading journey.

@@ -98,9 +98,9 @@ export default function TestimonialsSection() {
           </span>
           <h2 className="font-serif text-4xl md:text-5xl font-bold mb-4">
             Hear from Our{' '}
-            <span className="bg-gradient-to-r from-amber-500 to-yellow-500 bg-clip-text text-transparent">
-              Successful Students
-            </span>
+             <span className="text-accent">
+               Successful Students
+             </span>
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
             Real stories from real people who transformed their financial lives with First Million Trade.
@@ -133,7 +133,7 @@ export default function TestimonialsSection() {
                   {/* Rating */}
                   <div className="flex justify-center gap-1 mb-6">
                     {[...Array(testimonials[current].rating)].map((_, i) => (
-                      <Star key={i} className="w-5 h-5 text-amber-500" fill="currentColor" />
+                      <Star key={i} className="w-5 h-5 text-accent" fill="currentColor" />
                     ))}
                   </div>
 

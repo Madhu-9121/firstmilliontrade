@@ -96,9 +96,9 @@ export default function Testimonials() {
             </span>
             <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
               Real Results from{' '}
-              <span className="bg-gradient-to-r from-amber-500 to-yellow-500 bg-clip-text text-transparent">
-                Real Students
-              </span>
+               <span className="text-accent">
+                 Real Students
+               </span>
             </h1>
             <p className="text-xl text-muted-foreground">
               Hear from our community of successful traders who transformed their financial lives with First Million Trade.
@@ -130,7 +130,7 @@ export default function Testimonials() {
                   {/* Rating */}
                   <div className="flex gap-1 mb-4 pt-2">
                     {[...Array(testimonial.rating)].map((_, i) => (
-                      <Star key={i} className="w-4 h-4 text-amber-500" fill="currentColor" />
+                      <Star key={i} className="w-4 h-4 text-accent" fill="currentColor" />
                     ))}
                   </div>
 

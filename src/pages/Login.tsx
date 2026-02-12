@@ -63,7 +63,7 @@ export default function Login() {
             opacity: [0.2, 0.4, 0.2],
           }}
           transition={{ duration: 8, repeat: Infinity }}
-          className="absolute top-1/4 -right-32 w-96 h-96 bg-gradient-to-br from-amber-500/20 to-yellow-500/20 rounded-full blur-3xl"
+          className="absolute top-1/4 -right-32 w-96 h-96 bg-accent/20 rounded-full blur-3xl"
         />
 
         <div className="container mx-auto px-4 relative z-10">
@@ -77,8 +77,8 @@ export default function Login() {
               {/* Logo */}
               <div className="text-center mb-8">
                 <Link to="/" className="inline-flex items-center gap-3">
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-amber-400 to-amber-600 flex items-center justify-center shadow-gold">
-                    <span className="text-xl font-bold text-slate-900">FM</span>
+                   <div className="w-12 h-12 rounded-xl bg-accent flex items-center justify-center shadow-gold">
+                     <span className="text-xl font-bold text-accent-foreground">FM</span>
                   </div>
                   <div className="text-left">
                     <h3 className="font-serif text-xl font-bold">First Million</h3>

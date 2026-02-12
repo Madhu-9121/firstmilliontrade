@@ -100,9 +100,9 @@ export default function Blog() {
             </span>
             <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
               Market Insights &{' '}
-              <span className="bg-gradient-to-r from-amber-500 to-yellow-500 bg-clip-text text-transparent">
-                Trading Knowledge
-              </span>
+               <span className="text-accent">
+                 Trading Knowledge
+               </span>
             </h1>
             <p className="text-xl text-muted-foreground">
               Stay updated with market analysis, trading tips, and educational content from our expert team.
