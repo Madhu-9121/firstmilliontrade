@@ -62,9 +62,9 @@ export default function CoursesPreview() {
           </span>
           <h2 className="font-serif text-4xl md:text-5xl font-bold mb-4">
             Transform Your Trading{' '}
-            <span className="bg-gradient-to-r from-amber-500 to-yellow-500 bg-clip-text text-transparent">
-              Skills
-            </span>
+             <span className="text-accent">
+               Skills
+             </span>
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
             Structured learning paths designed by market experts with years of successful trading experience.
@@ -129,7 +129,7 @@ export default function CoursesPreview() {
                       {course.students}
                     </div>
                     <div className="flex items-center gap-1">
-                      <Star className="w-4 h-4 text-amber-500" fill="currentColor" />
+                      <Star className="w-4 h-4 text-accent" fill="currentColor" />
                       {course.rating}
                     </div>
                   </div>

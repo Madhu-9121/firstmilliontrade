@@ -47,7 +47,7 @@ export default function Footer() {
   return (
     <footer className="relative bg-gradient-to-b from-background to-muted/50 pt-20 pb-8">
       {/* Decorative top border */}
-      <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-amber-500 to-transparent" />
+      <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-accent to-transparent" />
 
       <div className="container mx-auto px-4">
         {/* CTA Section */}
@@ -58,7 +58,7 @@ export default function Footer() {
           className="glass-card rounded-2xl p-8 md:p-12 mb-16 text-center"
         >
           <h2 className="font-serif text-3xl md:text-4xl font-bold mb-4">
-            Ready to Start Your <span className="text-amber-500">Trading Journey</span>?
+            Ready to Start Your <span className="text-accent">Trading Journey</span>?
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto mb-8">
             Join thousands of successful traders who have transformed their financial future with First Million Trade.
@@ -83,8 +83,8 @@ export default function Footer() {
           {/* Brand Column */}
           <div className="lg:col-span-2">
             <Link to="/" className="flex items-center gap-3 mb-6">
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-amber-400 to-amber-600 flex items-center justify-center shadow-gold">
-                <span className="text-xl font-bold text-slate-900">FM</span>
+               <div className="w-12 h-12 rounded-xl bg-accent flex items-center justify-center shadow-gold">
+                 <span className="text-xl font-bold text-accent-foreground">FM</span>
               </div>
               <div>
                 <h3 className="font-serif text-xl font-bold">First Million Trade</h3>
@@ -100,7 +100,7 @@ export default function Footer() {
                   key={social.label}
                   href={social.href}
                   aria-label={social.label}
-                  className="w-10 h-10 rounded-full bg-muted hover:bg-amber-500 hover:text-slate-900 flex items-center justify-center transition-all duration-300"
+                  className="w-10 h-10 rounded-full bg-muted hover:bg-accent hover:text-accent-foreground flex items-center justify-center transition-all duration-300"
                 >
                   <social.icon className="w-5 h-5" />
                 </a>
@@ -116,7 +116,7 @@ export default function Footer() {
                 <li key={link.name}>
                   <Link
                     to={link.path}
-                    className="text-muted-foreground hover:text-amber-500 transition-colors"
+                     className="text-muted-foreground hover:text-accent transition-colors"
                   >
                     {link.name}
                   </Link>
@@ -133,7 +133,7 @@ export default function Footer() {
                 <li key={link.name}>
                   <Link
                     to={link.path}
-                    className="text-muted-foreground hover:text-amber-500 transition-colors"
+                    className="text-muted-foreground hover:text-accent transition-colors"
                   >
                     {link.name}
                   </Link>
@@ -147,24 +147,24 @@ export default function Footer() {
             <h4 className="font-semibold mb-4 text-foreground">Contact</h4>
             <ul className="space-y-4">
               <li className="flex items-start gap-3 text-muted-foreground">
-                <MapPin className="w-5 h-5 text-amber-500 shrink-0 mt-0.5" />
+                <MapPin className="w-5 h-5 text-accent shrink-0 mt-0.5" />
                 <span>123 Trading Plaza, Financial District, Mumbai 400001</span>
               </li>
               <li>
                 <a 
                   href="tel:+919876543210" 
-                  className="flex items-center gap-3 text-muted-foreground hover:text-amber-500 transition-colors"
-                >
-                  <Phone className="w-5 h-5 text-amber-500" />
+                   className="flex items-center gap-3 text-muted-foreground hover:text-accent transition-colors"
+                 >
+                   <Phone className="w-5 h-5 text-accent" />
                   +91 98765 43210
                 </a>
               </li>
               <li>
                 <a 
                   href="mailto:info@firstmilliontrade.com" 
-                  className="flex items-center gap-3 text-muted-foreground hover:text-amber-500 transition-colors"
-                >
-                  <Mail className="w-5 h-5 text-amber-500" />
+                   className="flex items-center gap-3 text-muted-foreground hover:text-accent transition-colors"
+                 >
+                   <Mail className="w-5 h-5 text-accent" />
                   info@firstmilliontrade.com
                 </a>
               </li>

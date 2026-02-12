@@ -113,9 +113,9 @@ export default function Courses() {
             </span>
             <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
               Learn to Trade with{' '}
-              <span className="bg-gradient-to-r from-amber-500 to-yellow-500 bg-clip-text text-transparent">
-                Confidence
-              </span>
+               <span className="text-accent">
+                 Confidence
+               </span>
             </h1>
             <p className="text-xl text-muted-foreground">
               Structured programs designed by market experts to take you from beginner to professional trader.
@@ -191,7 +191,7 @@ export default function Courses() {
                         {course.students}
                       </div>
                       <div className="flex items-center gap-1">
-                        <Star className="w-4 h-4 text-amber-500" fill="currentColor" />
+                        <Star className="w-4 h-4 text-accent" fill="currentColor" />
                         {course.rating}
                       </div>
                     </div>

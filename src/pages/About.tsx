@@ -67,9 +67,9 @@ export default function About() {
             </span>
             <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
               Empowering Your{' '}
-              <span className="bg-gradient-to-r from-amber-500 to-yellow-500 bg-clip-text text-transparent">
-                Financial Future
-              </span>
+               <span className="text-accent">
+                 Financial Future
+               </span>
             </h1>
             <p className="text-xl text-muted-foreground">
               First Million Trade is dedicated to transforming individuals into confident, successful traders through comprehensive education and expert mentorship.

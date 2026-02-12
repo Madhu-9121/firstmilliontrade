@@ -94,9 +94,9 @@ export default function Services() {
             </span>
             <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
               Beyond Education:{' '}
-              <span className="bg-gradient-to-r from-amber-500 to-yellow-500 bg-clip-text text-transparent">
-                Complete Trading Solutions
-              </span>
+               <span className="text-accent">
+                 Complete Trading Solutions
+               </span>
             </h1>
             <p className="text-xl text-muted-foreground">
               From mentorship to portfolio management, we offer comprehensive services to support your trading journey at every stage.
