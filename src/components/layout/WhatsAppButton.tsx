@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { MessageCircle } from 'lucide-react';
 
 export default function WhatsAppButton() {
-  const phoneNumber = '919876543210'; // Replace with actual number
+  const phoneNumber = '919032046008';
   const message = encodeURIComponent('Hi! I would like to learn more about First Million Trade courses.');
   
   return (
@@ -19,8 +19,6 @@ export default function WhatsAppButton() {
       aria-label="Chat on WhatsApp"
     >
       <MessageCircle className="w-7 h-7 text-white" fill="white" />
-      
-      {/* Pulse animation */}
       <span className="absolute inset-0 rounded-full bg-green-500 animate-ping opacity-30" />
     </motion.a>
   );
