@@ -1,35 +1,24 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Sun, Moon, ChevronDown } from 'lucide-react';
+import { Menu, X, Sun, Moon } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
+import logo from '@/assets/logo.png';
 
 const navLinks = [
   { name: 'Home', path: '/' },
   { name: 'About', path: '/about' },
-  { 
-    name: 'Courses', 
-    path: '/courses',
-    dropdown: [
-      { name: 'Smart Investing', path: '/courses/smart-investing' },
-      { name: 'Market Analysis', path: '/courses/market-analysis' },
-      { name: 'Trading Strategies', path: '/courses/trading-strategies' },
-      { name: 'Algo Trading', path: '/courses/algo-trading' },
-    ]
-  },
-  { name: 'Services', path: '/services' },
-  { name: 'Certificates', path: '/certificates' },
+  { name: 'Courses', path: '/courses' },
+  { name: 'Opportunities', path: '/opportunities' },
   { name: 'Testimonials', path: '/testimonials' },
-  { name: 'Blog', path: '/blog' },
-  { name: 'Contact', path: '/contact' },
+  { name: 'Contact Us', path: '/contact' },
 ];
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [isDark, setIsDark] = useState(false);
-  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const location = useLocation();
 
   useEffect(() => {
@@ -65,64 +54,26 @@ export default function Navbar() {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3">
-            <motion.div 
-              whileHover={{ scale: 1.05 }}
-              className="relative"
-            >
-              <div className="w-12 h-12 rounded-xl bg-accent flex items-center justify-center shadow-gold">
-                <span className="text-xl font-bold text-accent-foreground">FM</span>
-              </div>
+            <motion.div whileHover={{ scale: 1.05 }}>
+              <img src={logo} alt="First Million Trade" className="h-10 md:h-12 w-auto" />
             </motion.div>
-            <div className="hidden sm:block">
-              <h1 className="font-serif text-xl font-bold text-foreground">First Million</h1>
-              <p className="text-xs text-muted-foreground -mt-1">Trade</p>
-            </div>
           </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center gap-1">
             {navLinks.map((link) => (
-              <div 
+              <Link
                 key={link.name}
-                className="relative"
-                onMouseEnter={() => link.dropdown && setActiveDropdown(link.name)}
-                onMouseLeave={() => setActiveDropdown(null)}
+                to={link.path}
+                className={cn(
+                  "px-4 py-2 rounded-lg font-medium transition-all duration-300 text-sm",
+                  location.pathname === link.path
+                    ? "text-accent"
+                    : "text-foreground/80 hover:text-accent hover:bg-accent/5"
+                )}
               >
-                <Link
-                  to={link.path}
-                  className={cn(
-                    "px-4 py-2 rounded-lg font-medium transition-all duration-300 flex items-center gap-1",
-                    location.pathname === link.path
-                      ? "text-accent"
-                      : "text-foreground/80 hover:text-foreground hover:bg-accent/50"
-                  )}
-                >
-                  {link.name}
-                  {link.dropdown && <ChevronDown className="w-4 h-4" />}
-                </Link>
-                
-                {/* Dropdown */}
-                <AnimatePresence>
-                  {link.dropdown && activeDropdown === link.name && (
-                    <motion.div
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: 10 }}
-                      className="absolute top-full left-0 mt-2 w-56 py-2 glass-card rounded-xl overflow-hidden"
-                    >
-                      {link.dropdown.map((item) => (
-                        <Link
-                          key={item.name}
-                          to={item.path}
-                          className="block px-4 py-2.5 text-sm text-foreground/80 hover:text-foreground hover:bg-accent/50 transition-colors"
-                        >
-                          {item.name}
-                        </Link>
-                      ))}
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </div>
+                {link.name}
+              </Link>
             ))}
           </div>
 
@@ -136,21 +87,11 @@ export default function Navbar() {
             >
               <AnimatePresence mode="wait">
                 {isDark ? (
-                  <motion.div
-                    key="sun"
-                    initial={{ rotate: -90, opacity: 0 }}
-                    animate={{ rotate: 0, opacity: 1 }}
-                    exit={{ rotate: 90, opacity: 0 }}
-                  >
+                  <motion.div key="sun" initial={{ rotate: -90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: 90, opacity: 0 }}>
                     <Sun className="w-5 h-5 text-accent" />
                   </motion.div>
                 ) : (
-                  <motion.div
-                    key="moon"
-                    initial={{ rotate: 90, opacity: 0 }}
-                    animate={{ rotate: 0, opacity: 1 }}
-                    exit={{ rotate: -90, opacity: 0 }}
-                  >
+                  <motion.div key="moon" initial={{ rotate: 90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: -90, opacity: 0 }}>
                     <Moon className="w-5 h-5" />
                   </motion.div>
                 )}
@@ -159,13 +100,8 @@ export default function Navbar() {
 
             <div className="hidden md:flex items-center gap-2">
               <Link to="/login">
-                <Button variant="ghost" size="sm">
+                <Button variant="outline" size="sm" className="border-accent text-accent hover:bg-accent hover:text-accent-foreground">
                   Login
-                </Button>
-              </Link>
-              <Link to="/contact">
-                <Button variant="hero" size="sm">
-                  Get Started
                 </Button>
               </Link>
             </div>
@@ -205,7 +141,7 @@ export default function Navbar() {
                       className={cn(
                         "block px-4 py-3 rounded-lg font-medium transition-all",
                         location.pathname === link.path
-                           ? "bg-accent/10 text-accent"
+                          ? "bg-accent/10 text-accent"
                           : "text-foreground/80 hover:bg-muted/50"
                       )}
                     >
@@ -215,10 +151,7 @@ export default function Navbar() {
                 ))}
                 <div className="pt-4 flex gap-2">
                   <Link to="/login" className="flex-1">
-                    <Button variant="outline" className="w-full">Login</Button>
-                  </Link>
-                  <Link to="/contact" className="flex-1">
-                    <Button variant="hero" className="w-full">Get Started</Button>
+                    <Button variant="outline" className="w-full border-accent text-accent hover:bg-accent hover:text-accent-foreground">Login</Button>
                   </Link>
                 </div>
               </div>

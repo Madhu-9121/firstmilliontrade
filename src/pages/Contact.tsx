@@ -10,7 +10,6 @@ import {
   Heart,
   Send,
   Clock,
-  CheckCircle2
 } from 'lucide-react';
 import Layout from '@/components/layout/Layout';
 import { Button } from '@/components/ui/button';
@@ -24,21 +23,15 @@ const interestOptions = ['Smart Investing', 'Market Analysis', 'Trading Strategi
 const contactInfo = [
   {
     icon: Phone,
-    title: 'Phone',
-    value: '+91 98765 43210',
-    href: 'tel:+919876543210',
+    title: 'WhatsApp',
+    value: '+91 90320 46008',
+    href: 'https://wa.me/919032046008',
   },
   {
     icon: Mail,
     title: 'Email',
-    value: 'info@firstmilliontrade.com',
-    href: 'mailto:info@firstmilliontrade.com',
-  },
-  {
-    icon: MapPin,
-    title: 'Address',
-    value: '123 Trading Plaza, Financial District, Mumbai 400001',
-    href: '#',
+    value: 'firstmilliontrade@gmail.com',
+    href: 'mailto:firstmilliontrade@gmail.com',
   },
   {
     icon: Clock,
@@ -46,6 +39,12 @@ const contactInfo = [
     value: 'Mon - Sat: 9:00 AM - 7:00 PM',
     href: '#',
   },
+];
+
+const socialLinks = [
+  { name: 'Facebook', href: 'https://www.facebook.com/share/176CuPCNyn/', icon: '📘' },
+  { name: 'YouTube', href: 'https://www.youtube.com/@FirstMillionTrade', icon: '📺' },
+  { name: 'Instagram', href: 'https://www.instagram.com/first_million_trade?igsh=MWdqd2xvODV5c2pkeA==', icon: '📸' },
 ];
 
 export default function Contact() {
@@ -79,23 +78,18 @@ export default function Contact() {
       return;
     }
 
-    // Simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 1500));
+    // Redirect to WhatsApp with form data
+    const message = encodeURIComponent(
+      `Hi! I'm interested in First Million Trade.\n\nName: ${formData.name}\nMobile: ${formData.mobile}\nEmail: ${formData.email}\nCity: ${formData.city}\nExperience: ${formData.experience}\nInterest: ${formData.interest}\nMessage: ${formData.comment}`
+    );
+    
+    window.open(`https://wa.me/919032046008?text=${message}`, '_blank');
 
     toast({
-      title: 'Enquiry Submitted Successfully!',
-      description: "Thank you for reaching out. We'll get back to you within 24 hours.",
+      title: 'Redirecting to WhatsApp!',
+      description: "Your enquiry details have been prepared. Please send the message on WhatsApp.",
     });
 
-    setFormData({
-      name: '',
-      mobile: '',
-      email: '',
-      city: '',
-      experience: '',
-      interest: '',
-      comment: '',
-    });
     setIsSubmitting(false);
   };
 
@@ -104,7 +98,6 @@ export default function Contact() {
       {/* Hero */}
       <section className="pt-32 pb-16 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-accent/5" />
-        
         <div className="container mx-auto px-4 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -117,9 +110,7 @@ export default function Contact() {
             </span>
             <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
               Let's Start Your{' '}
-               <span className="text-accent">
-                 Trading Journey
-               </span>
+              <span className="text-accent">Trading Journey</span>
             </h1>
             <p className="text-xl text-muted-foreground">
               Have questions? We'd love to hear from you. Send us a message and we'll respond as soon as possible.
@@ -137,19 +128,20 @@ export default function Contact() {
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
               className="lg:col-span-1"
             >
               <h2 className="font-serif text-2xl font-bold mb-6">Get in Touch</h2>
               <p className="text-muted-foreground mb-8">
-                Whether you're interested in our courses, mentorship programs, or investment services, our team is here to help.
+                Whether you're interested in our courses, mentorship programs, or have any questions, our team is here to help.
               </p>
 
-              <div className="space-y-6">
+              <div className="space-y-6 mb-8">
                 {contactInfo.map((item) => (
                   <a
                     key={item.title}
                     href={item.href}
+                    target={item.href.startsWith('http') ? '_blank' : undefined}
+                    rel={item.href.startsWith('http') ? 'noopener noreferrer' : undefined}
                     className="flex items-start gap-4 p-4 rounded-xl hover:bg-muted/50 transition-colors group"
                   >
                     <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center shrink-0 group-hover:bg-accent/20 transition-colors">
@@ -162,6 +154,23 @@ export default function Contact() {
                   </a>
                 ))}
               </div>
+
+              {/* Social Links */}
+              <h3 className="font-semibold mb-4">Follow Us</h3>
+              <div className="flex gap-3">
+                {socialLinks.map((social) => (
+                  <a
+                    key={social.name}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-12 h-12 rounded-full bg-muted hover:bg-accent hover:text-accent-foreground flex items-center justify-center transition-all duration-300 text-lg"
+                    aria-label={social.name}
+                  >
+                    {social.icon}
+                  </a>
+                ))}
+              </div>
             </motion.div>
 
             {/* Form */}
@@ -169,143 +178,70 @@ export default function Contact() {
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
               className="lg:col-span-2"
             >
               <div className="glass-card rounded-2xl p-8">
                 <h2 className="font-serif text-2xl font-bold mb-2">Send us a Message</h2>
                 <p className="text-muted-foreground mb-8">
-                  Fill out the form below and we'll get back to you within 24 hours.
+                  Fill out the form below and we'll redirect you to WhatsApp with your details.
                 </p>
 
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid sm:grid-cols-2 gap-4">
-                    {/* Name */}
                     <div className="relative">
                       <User className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
-                      <Input
-                        name="name"
-                        placeholder="Your Name *"
-                        value={formData.name}
-                        onChange={handleChange}
-                        className="pl-11"
-                        required
-                      />
+                      <Input name="name" placeholder="Your Name *" value={formData.name} onChange={handleChange} className="pl-11" required />
                     </div>
-
-                    {/* Mobile */}
                     <div className="relative">
                       <Phone className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
-                      <Input
-                        name="mobile"
-                        placeholder="Mobile Number *"
-                        value={formData.mobile}
-                        onChange={handleChange}
-                        className="pl-11"
-                        type="tel"
-                        required
-                      />
+                      <Input name="mobile" placeholder="Mobile Number *" value={formData.mobile} onChange={handleChange} className="pl-11" type="tel" required />
                     </div>
                   </div>
 
                   <div className="grid sm:grid-cols-2 gap-4">
-                    {/* Email */}
                     <div className="relative">
                       <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
-                      <Input
-                        name="email"
-                        placeholder="Email Address"
-                        value={formData.email}
-                        onChange={handleChange}
-                        className="pl-11"
-                        type="email"
-                      />
+                      <Input name="email" placeholder="Email Address" value={formData.email} onChange={handleChange} className="pl-11" type="email" />
                     </div>
-
-                    {/* City */}
                     <div className="relative">
                       <MapPin className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
-                      <Input
-                        name="city"
-                        placeholder="City"
-                        value={formData.city}
-                        onChange={handleChange}
-                        className="pl-11"
-                      />
+                      <Input name="city" placeholder="City" value={formData.city} onChange={handleChange} className="pl-11" />
                     </div>
                   </div>
 
                   <div className="grid sm:grid-cols-2 gap-4">
-                    {/* Experience */}
                     <div className="relative">
                       <Briefcase className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
-                      <select
-                        name="experience"
-                        value={formData.experience}
-                        onChange={handleChange}
-                        className="flex h-10 w-full rounded-lg border border-input bg-background px-3 py-2 pl-11 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
-                      >
+                      <select name="experience" value={formData.experience} onChange={handleChange} className="flex h-10 w-full rounded-lg border border-input bg-background px-3 py-2 pl-11 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2">
                         <option value="">Select Experience Level</option>
-                        {experienceOptions.map((option) => (
-                          <option key={option} value={option}>
-                            {option}
-                          </option>
-                        ))}
+                        {experienceOptions.map((option) => (<option key={option} value={option}>{option}</option>))}
                       </select>
                     </div>
-
-                    {/* Interest */}
                     <div className="relative">
                       <Heart className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
-                      <select
-                        name="interest"
-                        value={formData.interest}
-                        onChange={handleChange}
-                        className="flex h-10 w-full rounded-lg border border-input bg-background px-3 py-2 pl-11 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
-                      >
+                      <select name="interest" value={formData.interest} onChange={handleChange} className="flex h-10 w-full rounded-lg border border-input bg-background px-3 py-2 pl-11 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2">
                         <option value="">Select Area of Interest</option>
-                        {interestOptions.map((option) => (
-                          <option key={option} value={option}>
-                            {option}
-                          </option>
-                        ))}
+                        {interestOptions.map((option) => (<option key={option} value={option}>{option}</option>))}
                       </select>
                     </div>
                   </div>
 
-                  {/* Comment */}
                   <div className="relative">
                     <MessageSquare className="absolute left-3 top-3 w-5 h-5 text-muted-foreground" />
-                    <Textarea
-                      name="comment"
-                      placeholder="Your message or questions..."
-                      value={formData.comment}
-                      onChange={handleChange}
-                      className="pl-11 min-h-[120px]"
-                    />
+                    <Textarea name="comment" placeholder="Your message or questions..." value={formData.comment} onChange={handleChange} className="pl-11 min-h-[120px]" />
                   </div>
 
-                  {/* Submit Button */}
-                  <Button
-                    type="submit"
-                    variant="hero"
-                    size="lg"
-                    className="w-full sm:w-auto"
-                    disabled={isSubmitting}
-                  >
+                  <Button type="submit" size="lg" className="w-full sm:w-auto bg-accent text-accent-foreground font-bold hover:brightness-110" disabled={isSubmitting}>
                     {isSubmitting ? (
                       <>
-                        <motion.div
-                          animate={{ rotate: 360 }}
-                          transition={{ duration: 1, repeat: Infinity, ease: 'linear' }}
-                        >
+                        <motion.div animate={{ rotate: 360 }} transition={{ duration: 1, repeat: Infinity, ease: 'linear' }}>
                           <Send className="w-5 h-5" />
                         </motion.div>
-                        Submitting...
+                        Redirecting...
                       </>
                     ) : (
                       <>
-                        Submit Enquiry
+                        Send via WhatsApp
                         <Send className="w-5 h-5" />
                       </>
                     )}

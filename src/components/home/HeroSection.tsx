@@ -1,126 +1,74 @@
 import { motion } from 'framer-motion';
-import { ArrowRight, TrendingUp, Users, Award, BarChart3 } from 'lucide-react';
+import { ArrowRight, MessageCircle } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 
-const stats = [
-  { icon: Users, value: '10,000+', label: 'Students Trained' },
-  { icon: TrendingUp, value: '85%', label: 'Success Rate' },
-  { icon: Award, value: '50+', label: 'Certifications' },
-  { icon: BarChart3, value: '₹500Cr+', label: 'Assets Managed' },
-];
-
 export default function HeroSection() {
+  const whatsappNumber = '919032046008';
+  const whatsappMessage = encodeURIComponent('Hi! I would like to book a free consultation with First Million Trade.');
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Video */}
       <div className="absolute inset-0 z-0">
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          className="w-full h-full object-cover"
-        >
+        <video autoPlay muted loop playsInline className="w-full h-full object-cover">
           <source src="/hero-video.mp4" type="video/mp4" />
         </video>
-        {/* Dark overlay for readability */}
-        <div className="absolute inset-0 bg-gradient-to-b from-primary/80 via-primary/70 to-primary/90" />
+        <div className="absolute inset-0 bg-gradient-to-b from-primary/85 via-primary/75 to-primary/90" />
       </div>
 
       <div className="container mx-auto px-4 relative z-10 pt-20">
         <div className="max-w-5xl mx-auto text-center">
-          {/* Badge */}
+          {/* Motivation Quote */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/20 border border-accent/30 mb-8"
-          >
-            <span className="w-2 h-2 bg-accent rounded-full animate-pulse" />
-            <span className="text-sm font-medium text-primary-foreground/90">
-              Your Journey to Financial Freedom Starts Here
-            </span>
-          </motion.div>
-
-          {/* Main Heading */}
-          <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="font-serif text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight text-primary-foreground"
+            transition={{ duration: 0.7, delay: 0.1 }}
           >
-            Master the Markets,{' '}
-            <span className="relative">
-              <span className="relative z-10 text-accent">
-                Build Your First Million
-              </span>
-              <motion.span
-                initial={{ scaleX: 0 }}
-                animate={{ scaleX: 1 }}
-                transition={{ duration: 0.8, delay: 0.8 }}
-                className="absolute bottom-2 left-0 right-0 h-3 bg-accent/20 -z-10 origin-left"
-              />
-            </span>
-          </motion.h1>
+            <h1 className="font-serif text-4xl md:text-5xl lg:text-7xl font-bold mb-6 leading-tight text-primary-foreground">
+              "The Stock Market is a Device for Transferring Money from the{' '}
+              <span className="text-accent">Impatient</span> to the{' '}
+              <span className="text-accent">Patient</span>"
+            </h1>
+          </motion.div>
 
-          {/* Subheading */}
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-xl md:text-2xl text-primary-foreground/80 max-w-3xl mx-auto mb-10"
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="text-lg md:text-xl text-primary-foreground/80 max-w-3xl mx-auto mb-4"
           >
-            Comprehensive stock market education, expert mentorship, and proven strategies to transform your financial future.
+            At <strong className="text-accent">First Million Trade</strong>, we empower you with the knowledge, discipline, and strategies needed to navigate the markets with confidence. Our structured programs transform beginners into informed participants — building financial literacy, not just trades.
+          </motion.p>
+
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="text-base md:text-lg text-primary-foreground/60 italic mb-10"
+          >
+            Your Journey to the First Million
           </motion.p>
 
           {/* CTA Buttons */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
+            transition={{ duration: 0.6, delay: 0.5 }}
             className="flex flex-col sm:flex-row gap-4 justify-center mb-16"
           >
             <Link to="/courses">
-              <Button variant="hero" size="xl">
-                Read More
+              <Button size="xl" className="bg-accent text-accent-foreground font-bold shadow-blue hover:brightness-110 hover:scale-105 transform transition-all">
+                Explore Courses
                 <ArrowRight className="w-5 h-5" />
               </Button>
             </Link>
-            <Link to="/contact">
+            <a href={`https://wa.me/${whatsappNumber}?text=${whatsappMessage}`} target="_blank" rel="noopener noreferrer">
               <Button variant="outline" size="xl" className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10">
+                <MessageCircle className="w-5 h-5" />
                 Book Free Consultation
               </Button>
-            </Link>
-          </motion.div>
-
-          {/* Stats */}
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.5 }}
-            className="grid grid-cols-2 md:grid-cols-4 gap-6"
-          >
-            {stats.map((stat, index) => (
-              <motion.div
-                key={stat.label}
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5, delay: 0.6 + index * 0.1 }}
-                whileHover={{ y: -5 }}
-                className="rounded-2xl p-6 bg-primary-foreground/10 backdrop-blur-md border border-primary-foreground/15"
-              >
-                <div className="w-12 h-12 rounded-xl bg-accent/20 flex items-center justify-center mx-auto mb-3">
-                  <stat.icon className="w-6 h-6 text-accent" />
-                </div>
-                <div className="text-2xl md:text-3xl font-bold text-primary-foreground mb-1">
-                  {stat.value}
-                </div>
-                <div className="text-sm text-primary-foreground/70">
-                  {stat.label}
-                </div>
-              </motion.div>
-            ))}
+            </a>
           </motion.div>
         </div>
       </div>

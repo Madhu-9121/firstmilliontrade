@@ -1,56 +1,31 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { 
-  Facebook, 
-  Twitter, 
-  Instagram, 
-  Linkedin, 
-  Youtube,
-  Mail,
-  Phone,
-  MapPin,
-  ArrowRight
-} from 'lucide-react';
+import { Mail, Phone, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import logo from '@/assets/logo.png';
 
 const quickLinks = [
   { name: 'Home', path: '/' },
   { name: 'About Us', path: '/about' },
   { name: 'Courses', path: '/courses' },
+  { name: 'Opportunities', path: '/opportunities' },
   { name: 'Testimonials', path: '/testimonials' },
-  { name: 'Contact', path: '/contact' },
-];
-
-const courses = [
-  { name: 'Smart Investing', path: '/courses/smart-investing' },
-  { name: 'Market Analysis', path: '/courses/market-analysis' },
-  { name: 'Trading Strategies', path: '/courses/trading-strategies' },
-  { name: 'Algo Trading', path: '/courses/algo-trading' },
-];
-
-const services = [
-  { name: 'Mentorship', path: '/services#mentorship' },
-  { name: 'Live Trading', path: '/services#live-trading' },
-  { name: 'PMS', path: '/services#pms' },
-  { name: 'Research', path: '/services#research' },
+  { name: 'Contact Us', path: '/contact' },
 ];
 
 const socialLinks = [
-  { icon: Facebook, href: '#', label: 'Facebook' },
-  { icon: Twitter, href: '#', label: 'Twitter' },
-  { icon: Instagram, href: '#', label: 'Instagram' },
-  { icon: Linkedin, href: '#', label: 'LinkedIn' },
-  { icon: Youtube, href: '#', label: 'YouTube' },
+  { name: 'Facebook', href: 'https://www.facebook.com/share/176CuPCNyn/' },
+  { name: 'YouTube', href: 'https://www.youtube.com/@FirstMillionTrade' },
+  { name: 'Instagram', href: 'https://www.instagram.com/first_million_trade?igsh=MWdqd2xvODV5c2pkeA==' },
 ];
 
 export default function Footer() {
   return (
     <footer className="relative bg-gradient-to-b from-background to-muted/50 pt-20 pb-8">
-      {/* Decorative top border */}
       <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-accent to-transparent" />
 
       <div className="container mx-auto px-4">
-        {/* CTA Section */}
+        {/* CTA */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -61,48 +36,41 @@ export default function Footer() {
             Ready to Start Your <span className="text-accent">Trading Journey</span>?
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto mb-8">
-            Join thousands of successful traders who have transformed their financial future with First Million Trade.
+            Join thousands of successful learners who have transformed their financial future with First Million Trade.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link to="/courses">
-              <Button variant="hero" size="lg">
-                Explore Courses
-                <ArrowRight className="w-5 h-5" />
+              <Button size="lg" className="bg-accent text-accent-foreground font-bold hover:brightness-110">
+                Explore Courses <ArrowRight className="w-5 h-5" />
               </Button>
             </Link>
             <Link to="/contact">
-              <Button variant="outline" size="lg">
-                Talk to Us
-              </Button>
+              <Button variant="outline" size="lg">Talk to Us</Button>
             </Link>
           </div>
         </motion.div>
 
-        {/* Main Footer Content */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-12">
-          {/* Brand Column */}
+        {/* Footer Content */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+          {/* Brand */}
           <div className="lg:col-span-2">
-            <Link to="/" className="flex items-center gap-3 mb-6">
-               <div className="w-12 h-12 rounded-xl bg-accent flex items-center justify-center shadow-gold">
-                 <span className="text-xl font-bold text-accent-foreground">FM</span>
-              </div>
-              <div>
-                <h3 className="font-serif text-xl font-bold">First Million Trade</h3>
-                <p className="text-xs text-muted-foreground">Your Journey to the First Million</p>
-              </div>
+            <Link to="/" className="inline-block mb-6">
+              <img src={logo} alt="First Million Trade" className="h-10 w-auto" />
             </Link>
             <p className="text-muted-foreground mb-6 max-w-sm">
-              Empowering individuals with comprehensive stock market education, mentorship, and the tools needed for financial freedom.
+              Empowering individuals with comprehensive stock market education, mentorship, and the tools needed for financial literacy.
             </p>
             <div className="flex gap-3">
               {socialLinks.map((social) => (
                 <a
-                  key={social.label}
+                  key={social.name}
                   href={social.href}
-                  aria-label={social.label}
-                  className="w-10 h-10 rounded-full bg-muted hover:bg-accent hover:text-accent-foreground flex items-center justify-center transition-all duration-300"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={social.name}
+                  className="px-4 py-2 rounded-full bg-muted hover:bg-accent hover:text-accent-foreground text-sm font-medium transition-all duration-300"
                 >
-                  <social.icon className="w-5 h-5" />
+                  {social.name}
                 </a>
               ))}
             </div>
@@ -114,27 +82,7 @@ export default function Footer() {
             <ul className="space-y-3">
               {quickLinks.map((link) => (
                 <li key={link.name}>
-                  <Link
-                    to={link.path}
-                     className="text-muted-foreground hover:text-accent transition-colors"
-                  >
-                    {link.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Courses */}
-          <div>
-            <h4 className="font-semibold mb-4 text-foreground">Courses</h4>
-            <ul className="space-y-3">
-              {courses.map((link) => (
-                <li key={link.name}>
-                  <Link
-                    to={link.path}
-                    className="text-muted-foreground hover:text-accent transition-colors"
-                  >
+                  <Link to={link.path} className="text-muted-foreground hover:text-accent transition-colors">
                     {link.name}
                   </Link>
                 </li>
@@ -146,48 +94,32 @@ export default function Footer() {
           <div>
             <h4 className="font-semibold mb-4 text-foreground">Contact</h4>
             <ul className="space-y-4">
-              <li className="flex items-start gap-3 text-muted-foreground">
-                <MapPin className="w-5 h-5 text-accent shrink-0 mt-0.5" />
-                <span>123 Trading Plaza, Financial District, Mumbai 400001</span>
-              </li>
               <li>
-                <a 
-                  href="tel:+919876543210" 
-                   className="flex items-center gap-3 text-muted-foreground hover:text-accent transition-colors"
-                 >
-                   <Phone className="w-5 h-5 text-accent" />
-                  +91 98765 43210
+                <a href="https://wa.me/919032046008" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-muted-foreground hover:text-accent transition-colors">
+                  <Phone className="w-5 h-5 text-accent" />
+                  +91 90320 46008
                 </a>
               </li>
               <li>
-                <a 
-                  href="mailto:info@firstmilliontrade.com" 
-                   className="flex items-center gap-3 text-muted-foreground hover:text-accent transition-colors"
-                 >
-                   <Mail className="w-5 h-5 text-accent" />
-                  info@firstmilliontrade.com
+                <a href="mailto:firstmilliontrade@gmail.com" className="flex items-center gap-3 text-muted-foreground hover:text-accent transition-colors">
+                  <Mail className="w-5 h-5 text-accent" />
+                  firstmilliontrade@gmail.com
                 </a>
               </li>
             </ul>
           </div>
         </div>
 
-        {/* Bottom Bar */}
+        {/* Bottom */}
         <div className="border-t border-border pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-sm text-muted-foreground text-center md:text-left">
               © {new Date().getFullYear()} First Million Trade. All rights reserved.
             </p>
             <div className="flex gap-6 text-sm">
-              <Link to="/privacy" className="text-muted-foreground hover:text-foreground transition-colors">
-                Privacy Policy
-              </Link>
-              <Link to="/terms" className="text-muted-foreground hover:text-foreground transition-colors">
-                Terms of Service
-              </Link>
-              <Link to="/disclaimer" className="text-muted-foreground hover:text-foreground transition-colors">
-                Disclaimer
-              </Link>
+              <Link to="/privacy" className="text-muted-foreground hover:text-foreground transition-colors">Privacy Policy</Link>
+              <Link to="/terms" className="text-muted-foreground hover:text-foreground transition-colors">Terms of Service</Link>
+              <Link to="/disclaimer" className="text-muted-foreground hover:text-foreground transition-colors">Disclaimer</Link>
             </div>
           </div>
         </div>
