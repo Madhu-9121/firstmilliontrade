@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Mail, Phone, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import logo from '@/assets/logo.png';
+import Logo from './Logo';
 
 const quickLinks = [
   { name: 'Home', path: '/' },
@@ -55,7 +55,7 @@ export default function Footer() {
           {/* Brand */}
           <div className="lg:col-span-2">
             <Link to="/" className="inline-block mb-6">
-              <img src={logo} alt="First Million Trade" className="h-10 w-auto" />
+              <Logo scale={1.5} />
             </Link>
             <p className="text-muted-foreground mb-6 max-w-sm">
               Empowering individuals with comprehensive stock market education, mentorship, and the tools needed for financial literacy.
