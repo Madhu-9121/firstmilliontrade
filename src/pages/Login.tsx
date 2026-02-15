@@ -6,7 +6,7 @@ import Layout from '@/components/layout/Layout';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { toast } from '@/hooks/use-toast';
-import logo from '@/assets/logo.png';
+import Logo from '@/components/layout/Logo';
 
 export default function Login() {
   const [isLogin, setIsLogin] = useState(true);
@@ -66,7 +66,7 @@ export default function Login() {
               {/* Logo */}
               <div className="text-center mb-8">
                 <Link to="/" className="inline-block">
-                  <img src={logo} alt="First Million Trade" className="h-12 w-auto mx-auto" />
+                  <Logo scale={2} />
                 </Link>
               </div>
 

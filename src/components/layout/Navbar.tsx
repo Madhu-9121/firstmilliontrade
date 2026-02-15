@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, Sun, Moon } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
-import logo from '@/assets/logo.png';
+import Logo from './Logo';
 
 const navLinks = [
 { name: 'Home', path: '/' },
@@ -55,7 +55,7 @@ export default function Navbar() {
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3">
             <motion.div whileHover={{ scale: 1.05 }}>
-              <img alt="First Million Trade" className="h-10 md:h-12 w-auto" src="/lovable-uploads/0b9b811c-bfe2-4895-80af-563fbb52057f.png" />
+              <Logo scale={1.8} />
             </motion.div>
           </Link>
 
