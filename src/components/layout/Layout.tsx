@@ -4,6 +4,7 @@ import Navbar from './Navbar';
 import Footer from './Footer';
 import WhatsAppButton from './WhatsAppButton';
 import EnquiryModal from './EnquiryModal';
+import MarketTicker from '@/components/home/MarketTicker';
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -29,6 +30,7 @@ export default function Layout({ children }: LayoutProps) {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <MarketTicker />
       <Navbar />
       <main className="flex-1">
         {children}
