@@ -18,6 +18,7 @@ const courses = [
     originalPrice: '₹14,999',
     image: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=600&h=400&fit=crop',
     slug: 'smart-investing',
+    comingSoon: false,
     features: [
       'Understanding market basics',
       'Portfolio diversification',
@@ -27,9 +28,9 @@ const courses = [
   },
   {
     id: 2,
-    title: 'Market Analysis',
-    tagline: 'Master Technical Analysis',
-    description: 'Comprehensive technical analysis course covering chart patterns, indicators, volume analysis, and price action trading for informed decision making.',
+    title: 'F&O (Futures & Options)',
+    tagline: 'Master Derivatives Trading',
+    description: 'Comprehensive futures and options course covering strategies, Greeks, hedging techniques, and risk management for derivatives markets.',
     duration: '10 Weeks',
     students: '3,200+',
     rating: 4.8,
@@ -37,12 +38,13 @@ const courses = [
     price: '₹14,999',
     originalPrice: '₹24,999',
     image: 'https://images.unsplash.com/photo-1642790106117-e829e14a795f?w=600&h=400&fit=crop',
-    slug: 'market-analysis',
+    slug: 'futures-and-options',
+    comingSoon: false,
     features: [
-      'Chart pattern recognition',
-      'Technical indicators mastery',
-      'Volume & price action',
-      'Trading view platform',
+      'Options Greeks & pricing',
+      'Spread & hedging strategies',
+      'Risk-reward optimization',
+      'Live market practice',
     ],
   },
   {
@@ -58,6 +60,7 @@ const courses = [
     originalPrice: '₹39,999',
     image: 'https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?w=600&h=400&fit=crop',
     slug: 'trading-strategies',
+    comingSoon: false,
     features: [
       'Intraday & swing strategies',
       'Position sizing & risk management',
@@ -78,6 +81,7 @@ const courses = [
     originalPrice: '₹59,999',
     image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop',
     slug: 'algo-trading',
+    comingSoon: true,
     features: [
       'Python for trading',
       'Strategy backtesting',
@@ -100,7 +104,7 @@ export default function Courses() {
       {/* Hero */}
       <section className="pt-32 pb-16 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-accent/5" />
-        
+
         <div className="container mx-auto px-4 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -113,9 +117,7 @@ export default function Courses() {
             </span>
             <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
               Learn to Trade with{' '}
-               <span className="text-accent">
-                 Confidence
-               </span>
+              <span className="text-accent">Confidence</span>
             </h1>
             <p className="text-xl text-muted-foreground">
               Structured programs designed by market experts to take you from beginner to professional trader.
@@ -135,8 +137,13 @@ export default function Courses() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="glass-card rounded-2xl overflow-hidden"
+                className={`glass-card rounded-2xl overflow-hidden relative ${course.comingSoon ? 'opacity-80' : ''}`}
               >
+                {course.comingSoon && (
+                  <div className="absolute top-4 right-4 z-20 px-4 py-1.5 rounded-full bg-accent text-accent-foreground text-sm font-bold shadow-lg">
+                    Coming Soon
+                  </div>
+                )}
                 <div className="grid md:grid-cols-2 gap-0">
                   {/* Image */}
                   <div className="relative h-64 md:h-auto overflow-hidden group">
@@ -146,41 +153,39 @@ export default function Courses() {
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                    
-                    {/* Play button */}
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <motion.div
-                        whileHover={{ scale: 1.1 }}
-                        className="w-16 h-16 rounded-full bg-white/90 flex items-center justify-center shadow-lg cursor-pointer"
-                      >
-                        <Play className="w-7 h-7 text-foreground ml-1" fill="currentColor" />
-                      </motion.div>
-                    </div>
+
+                    {!course.comingSoon && (
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <motion.div
+                          whileHover={{ scale: 1.1 }}
+                          className="w-16 h-16 rounded-full bg-white/90 flex items-center justify-center shadow-lg cursor-pointer"
+                        >
+                          <Play className="w-7 h-7 text-foreground ml-1" fill="currentColor" />
+                        </motion.div>
+                      </div>
+                    )}
 
                     {/* Level & Price */}
-                    <div className="absolute top-4 left-4 right-4 flex justify-between items-start">
+                    <div className="absolute bottom-4 left-4 right-4 flex justify-between items-end">
                       <span className={`px-3 py-1 rounded-full text-xs font-semibold ${levelColors[course.level]}`}>
                         {course.level}
                       </span>
-                      <div className="text-right">
-                        <span className="block text-2xl font-bold text-white">{course.price}</span>
-                        <span className="text-sm text-white/70 line-through">{course.originalPrice}</span>
+                      <div className="text-right bg-black/50 backdrop-blur-sm rounded-lg px-3 py-2">
+                        <span className="block text-xl font-bold text-white">{course.price}</span>
+                        <span className="text-xs text-white/70 line-through">{course.originalPrice}</span>
                       </div>
                     </div>
                   </div>
 
                   {/* Content */}
-                  <div className="p-8 flex flex-col">
+                  <div className="p-6 md:p-8 flex flex-col">
                     <div className="mb-4">
                       <p className="text-accent text-sm font-medium mb-1">{course.tagline}</p>
                       <h2 className="font-serif text-2xl md:text-3xl font-bold">{course.title}</h2>
                     </div>
 
-                    <p className="text-muted-foreground mb-6">
-                      {course.description}
-                    </p>
+                    <p className="text-muted-foreground mb-6">{course.description}</p>
 
-                    {/* Meta */}
                     <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground mb-6">
                       <div className="flex items-center gap-1">
                         <Clock className="w-4 h-4" />
@@ -196,7 +201,6 @@ export default function Courses() {
                       </div>
                     </div>
 
-                    {/* Features */}
                     <div className="grid grid-cols-2 gap-2 mb-6">
                       {course.features.map((feature) => (
                         <div key={feature} className="flex items-center gap-2 text-sm">
@@ -206,19 +210,24 @@ export default function Courses() {
                       ))}
                     </div>
 
-                    {/* CTA */}
                     <div className="mt-auto flex gap-4">
-                      <Link to={`/courses/${course.slug}`} className="flex-1">
-                        <Button variant="hero" className="w-full">
-                          Enroll Now
-                          <ArrowRight className="w-4 h-4" />
+                      {course.comingSoon ? (
+                        <Button variant="outline" className="flex-1" disabled>
+                          Coming Soon
                         </Button>
-                      </Link>
-                      <Link to="/contact">
-                        <Button variant="outline">
-                          Enquire
-                        </Button>
-                      </Link>
+                      ) : (
+                        <>
+                          <Link to={`/courses/${course.slug}`} className="flex-1">
+                            <Button variant="hero" className="w-full">
+                              Enroll Now
+                              <ArrowRight className="w-4 h-4" />
+                            </Button>
+                          </Link>
+                          <Link to="/contact">
+                            <Button variant="outline">Enquire</Button>
+                          </Link>
+                        </>
+                      )}
                     </div>
                   </div>
                 </div>

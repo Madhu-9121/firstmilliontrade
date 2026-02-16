@@ -3,11 +3,11 @@ import { CheckCircle2 } from 'lucide-react';
 import Layout from '@/components/layout/Layout';
 
 const teamMembers = [
-  { name: 'Seela Mohan', role: 'Co-Founder' },
-  { name: 'G Eswar', role: 'Co-Founder' },
-  { name: 'Shiak Madhar', role: 'Co-Founder' },
-  { name: 'Ajay Fernandez', role: 'Co-Founder' },
-  { name: 'B Sriramulu', role: 'Co-Founder' },
+  { name: 'Seela Mohan', role: 'CEO & Co-Founder', initials: 'SM' },
+  { name: 'G Eswar', role: 'Co-Founder & Head of Strategy', initials: 'GE' },
+  { name: 'Shiak Madhar', role: 'CFO & Lead Tutor', initials: 'SM' },
+  { name: 'Ajay Fernandez', role: 'Co-Founder & Head of Operations', initials: 'AF' },
+  { name: 'B Sriramulu', role: 'Co-Founder & Head of Curriculum', initials: 'BS' },
 ];
 
 const offerings = [
@@ -113,7 +113,7 @@ export default function About() {
         </div>
       </section>
 
-      {/* People Section */}
+      {/* People Section - Large Cards */}
       <section className="py-20 bg-muted/30">
         <div className="container mx-auto px-4">
           <motion.div
@@ -128,7 +128,7 @@ export default function About() {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 max-w-4xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
             {teamMembers.map((member, index) => (
               <motion.div
                 key={member.name}
@@ -136,16 +136,16 @@ export default function About() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                whileHover={{ y: -5 }}
-                className="glass-card rounded-2xl p-6 text-center"
+                whileHover={{ y: -8 }}
+                className="glass-card rounded-2xl p-8 text-center group"
               >
-                <div className="w-20 h-20 rounded-full bg-accent/10 flex items-center justify-center mx-auto mb-4">
-                  <span className="text-2xl font-bold text-accent">
-                    {member.name.split(' ').map(n => n[0]).join('')}
+                <div className="w-28 h-28 rounded-full bg-accent/10 flex items-center justify-center mx-auto mb-6 group-hover:bg-accent/20 transition-colors duration-300">
+                  <span className="text-3xl font-bold text-accent">
+                    {member.initials}
                   </span>
                 </div>
-                <h3 className="font-semibold text-sm">{member.name}</h3>
-                <p className="text-xs text-muted-foreground mt-1">{member.role}</p>
+                <h3 className="font-serif text-xl font-bold mb-2">{member.name}</h3>
+                <p className="text-accent text-sm font-medium">{member.role}</p>
               </motion.div>
             ))}
           </div>

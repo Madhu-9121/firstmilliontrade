@@ -83,7 +83,7 @@ export default function EnquiryModal({ isOpen, onClose }: EnquiryModalProps) {
             initial={{ opacity: 0, scale: 0.9, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.9, y: 20 }}
-            className="fixed inset-4 md:inset-auto md:top-1/2 md:left-1/2 md:-translate-x-1/2 md:-translate-y-1/2 md:w-full md:max-w-lg z-50 overflow-auto max-h-[90vh]"
+            className="fixed inset-4 md:inset-0 md:m-auto md:w-full md:max-w-lg md:h-fit z-50 overflow-auto max-h-[90vh]"
           >
             <div className="glass-card rounded-2xl p-6 md:p-8">
               {/* Header */}
