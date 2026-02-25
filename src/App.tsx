@@ -21,6 +21,8 @@ import StudentCourses from "./pages/dashboard/StudentCourses";
 import StudentSchedule from "./pages/dashboard/StudentSchedule";
 import Recordings from "./pages/dashboard/Recordings";
 import AdminUsers from "./pages/dashboard/AdminUsers";
+import CourseManagement from "./pages/dashboard/CourseManagement";
+import StudentProgress from "./pages/dashboard/StudentProgress";
 
 const queryClient = new QueryClient();
 
@@ -47,7 +49,9 @@ const App = () => (
           <Route path="/dashboard/classes" element={<ProtectedRoute allowedRoles={['admin', 'mentor']}><MentorClasses /></ProtectedRoute>} />
           <Route path="/dashboard/students" element={<ProtectedRoute allowedRoles={['admin', 'mentor']}><MentorStudents /></ProtectedRoute>} />
           <Route path="/dashboard/users" element={<ProtectedRoute allowedRoles={['admin']}><AdminUsers /></ProtectedRoute>} />
+          <Route path="/dashboard/course-management" element={<ProtectedRoute allowedRoles={['admin', 'mentor']}><CourseManagement /></ProtectedRoute>} />
           <Route path="/dashboard/courses" element={<ProtectedRoute allowedRoles={['student']}><StudentCourses /></ProtectedRoute>} />
+          <Route path="/dashboard/progress" element={<ProtectedRoute allowedRoles={['student']}><StudentProgress /></ProtectedRoute>} />
           <Route path="/dashboard/schedule" element={<ProtectedRoute allowedRoles={['student']}><StudentSchedule /></ProtectedRoute>} />
           <Route path="/dashboard/recordings" element={<ProtectedRoute><Recordings /></ProtectedRoute>} />
 

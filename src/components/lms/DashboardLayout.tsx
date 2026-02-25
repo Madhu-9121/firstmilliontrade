@@ -3,12 +3,13 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   LayoutDashboard, BookOpen, Users, Video, Calendar,
-  LogOut, Menu, X, ChevronRight, User, Settings
+  LogOut, Menu, X, ChevronRight, User, Settings, TrendingUp, GraduationCap
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import { useAuth, type AppRole } from '@/hooks/useAuth';
 import Logo from '@/components/layout/Logo';
+import NotificationBell from '@/components/lms/NotificationBell';
 
 interface DashboardLayoutProps {
   children: React.ReactNode;
@@ -18,12 +19,14 @@ const menuItems: Record<AppRole, { name: string; path: string; icon: any }[]> = 
   admin: [
     { name: 'Dashboard', path: '/dashboard', icon: LayoutDashboard },
     { name: 'Users', path: '/dashboard/users', icon: Users },
+    { name: 'Courses', path: '/dashboard/course-management', icon: GraduationCap },
     { name: 'Batches', path: '/dashboard/batches', icon: BookOpen },
     { name: 'Classes', path: '/dashboard/classes', icon: Calendar },
     { name: 'Recordings', path: '/dashboard/recordings', icon: Video },
   ],
   mentor: [
     { name: 'Dashboard', path: '/dashboard', icon: LayoutDashboard },
+    { name: 'Courses', path: '/dashboard/course-management', icon: GraduationCap },
     { name: 'My Batches', path: '/dashboard/batches', icon: BookOpen },
     { name: 'My Classes', path: '/dashboard/classes', icon: Calendar },
     { name: 'Students', path: '/dashboard/students', icon: Users },
@@ -32,6 +35,7 @@ const menuItems: Record<AppRole, { name: string; path: string; icon: any }[]> = 
   student: [
     { name: 'Dashboard', path: '/dashboard', icon: LayoutDashboard },
     { name: 'My Courses', path: '/dashboard/courses', icon: BookOpen },
+    { name: 'Progress', path: '/dashboard/progress', icon: TrendingUp },
     { name: 'Schedule', path: '/dashboard/schedule', icon: Calendar },
     { name: 'Recordings', path: '/dashboard/recordings', icon: Video },
   ],
@@ -109,6 +113,7 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
           <Logo scale={1.2} />
         </Link>
         <div className="flex items-center gap-2">
+          <NotificationBell />
           <span className="text-xs font-medium px-2 py-1 rounded-full bg-accent/10 text-accent capitalize">{role}</span>
           <Button variant="ghost" size="icon" onClick={() => setSidebarOpen(!sidebarOpen)}>
             {sidebarOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
