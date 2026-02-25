@@ -45,6 +45,7 @@ export type Database = {
       }
       batches: {
         Row: {
+          course_id: string | null
           created_at: string
           description: string | null
           id: string
@@ -54,6 +55,7 @@ export type Database = {
           updated_at: string
         }
         Insert: {
+          course_id?: string | null
           created_at?: string
           description?: string | null
           id?: string
@@ -63,6 +65,7 @@ export type Database = {
           updated_at?: string
         }
         Update: {
+          course_id?: string | null
           created_at?: string
           description?: string | null
           id?: string
@@ -71,7 +74,50 @@ export type Database = {
           status?: string
           updated_at?: string
         }
-        Relationships: []
+        Relationships: [
+          {
+            foreignKeyName: "batches_course_id_fkey"
+            columns: ["course_id"]
+            isOneToOne: false
+            referencedRelation: "courses"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      class_attendance: {
+        Row: {
+          attended: boolean
+          class_id: string
+          created_at: string
+          id: string
+          joined_at: string | null
+          student_id: string
+        }
+        Insert: {
+          attended?: boolean
+          class_id: string
+          created_at?: string
+          id?: string
+          joined_at?: string | null
+          student_id: string
+        }
+        Update: {
+          attended?: boolean
+          class_id?: string
+          created_at?: string
+          id?: string
+          joined_at?: string | null
+          student_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "class_attendance_class_id_fkey"
+            columns: ["class_id"]
+            isOneToOne: false
+            referencedRelation: "classes"
+            referencedColumns: ["id"]
+          },
+        ]
       }
       classes: {
         Row: {
@@ -125,6 +171,138 @@ export type Database = {
             referencedColumns: ["id"]
           },
         ]
+      }
+      course_progress: {
+        Row: {
+          batch_id: string | null
+          classes_attended: number
+          completion_percentage: number
+          course_id: string
+          created_at: string
+          id: string
+          last_class_attended_at: string | null
+          status: string
+          student_id: string
+          total_classes: number
+          updated_at: string
+        }
+        Insert: {
+          batch_id?: string | null
+          classes_attended?: number
+          completion_percentage?: number
+          course_id: string
+          created_at?: string
+          id?: string
+          last_class_attended_at?: string | null
+          status?: string
+          student_id: string
+          total_classes?: number
+          updated_at?: string
+        }
+        Update: {
+          batch_id?: string | null
+          classes_attended?: number
+          completion_percentage?: number
+          course_id?: string
+          created_at?: string
+          id?: string
+          last_class_attended_at?: string | null
+          status?: string
+          student_id?: string
+          total_classes?: number
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "course_progress_batch_id_fkey"
+            columns: ["batch_id"]
+            isOneToOne: false
+            referencedRelation: "batches"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "course_progress_course_id_fkey"
+            columns: ["course_id"]
+            isOneToOne: false
+            referencedRelation: "courses"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      courses: {
+        Row: {
+          category: string
+          created_at: string
+          created_by: string
+          description: string | null
+          duration_hours: number | null
+          id: string
+          status: string
+          thumbnail_url: string | null
+          title: string
+          total_classes: number | null
+          updated_at: string
+        }
+        Insert: {
+          category?: string
+          created_at?: string
+          created_by: string
+          description?: string | null
+          duration_hours?: number | null
+          id?: string
+          status?: string
+          thumbnail_url?: string | null
+          title: string
+          total_classes?: number | null
+          updated_at?: string
+        }
+        Update: {
+          category?: string
+          created_at?: string
+          created_by?: string
+          description?: string | null
+          duration_hours?: number | null
+          id?: string
+          status?: string
+          thumbnail_url?: string | null
+          title?: string
+          total_classes?: number | null
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      notifications: {
+        Row: {
+          created_at: string
+          id: string
+          is_read: boolean
+          link: string | null
+          message: string
+          title: string
+          type: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          is_read?: boolean
+          link?: string | null
+          message: string
+          title: string
+          type?: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          is_read?: boolean
+          link?: string | null
+          message?: string
+          title?: string
+          type?: string
+          user_id?: string
+        }
+        Relationships: []
       }
       profiles: {
         Row: {
