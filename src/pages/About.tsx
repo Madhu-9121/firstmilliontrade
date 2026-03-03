@@ -1,13 +1,14 @@
 import { motion } from 'framer-motion';
 import { CheckCircle2 } from 'lucide-react';
 import Layout from '@/components/layout/Layout';
+import teamHarsha from '@/assets/team-harsha.jpg';
+import teamMadhusudan from '@/assets/team-madhusudan.jpg';
+import teamYaswanth from '@/assets/team-yaswanth.jpg';
 
 const teamMembers = [
-  { name: 'Seela Mohan', role: 'CEO & Co-Founder', initials: 'SM' },
-  { name: 'G Eswar', role: 'Co-Founder & Head of Strategy', initials: 'GE' },
-  { name: 'Shiak Madhar', role: 'CFO & Lead Tutor', initials: 'SM' },
-  { name: 'Ajay Fernandez', role: 'Co-Founder & Head of Operations', initials: 'AF' },
-  { name: 'B Sriramulu', role: 'Co-Founder & Head of Curriculum', initials: 'BS' },
+  { name: 'Y. Harsha Vardhan', role: 'CEO & Co-Founder', image: teamHarsha },
+  { name: 'Madhusudan Reddy', role: 'Co-Founder & Head of Strategy', image: teamMadhusudan },
+  { name: 'Yaswanth Sai Bille', role: 'Co-Founder & Technical Lead', image: teamYaswanth },
 ];
 
 const offerings = [
@@ -113,7 +114,7 @@ export default function About() {
         </div>
       </section>
 
-      {/* People Section - Large Cards */}
+      {/* People Section */}
       <section className="py-20 bg-muted/30">
         <div className="container mx-auto px-4">
           <motion.div
@@ -139,10 +140,12 @@ export default function About() {
                 whileHover={{ y: -8 }}
                 className="glass-card rounded-2xl p-8 text-center group"
               >
-                <div className="w-28 h-28 rounded-full bg-accent/10 flex items-center justify-center mx-auto mb-6 group-hover:bg-accent/20 transition-colors duration-300">
-                  <span className="text-3xl font-bold text-accent">
-                    {member.initials}
-                  </span>
+                <div className="w-28 h-28 rounded-full overflow-hidden mx-auto mb-6 ring-4 ring-accent/20 group-hover:ring-accent/40 transition-all duration-300">
+                  <img
+                    src={member.image}
+                    alt={member.name}
+                    className="w-full h-full object-cover"
+                  />
                 </div>
                 <h3 className="font-serif text-xl font-bold mb-2">{member.name}</h3>
                 <p className="text-accent text-sm font-medium">{member.role}</p>
