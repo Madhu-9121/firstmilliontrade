@@ -85,11 +85,11 @@ const courses: Course[] = [
     level: 'Intermediate',
     slug: 'global-alpha',
     images: [
-      'https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?w=600&h=400&fit=crop',
-      'https://images.unsplash.com/photo-1614028674026-a65e31bfd27c?w=600&h=400&fit=crop',
-      'https://images.unsplash.com/photo-1604594849809-dfedbc827105?w=600&h=400&fit=crop',
-      'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=600&h=400&fit=crop',
-      'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop',
+      '/images/courses/global-1.jpg',
+      '/images/courses/global-2.jpg',
+      '/images/courses/global-3.jpg',
+      '/images/courses/global-4.jpg',
+      '/images/courses/global-5.jpg',
     ],
   },
   {
