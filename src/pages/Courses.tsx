@@ -49,11 +49,11 @@ const courses: Course[] = [
     level: 'Intermediate',
     slug: 'institutional-trading',
     images: [
-      'https://images.unsplash.com/photo-1642790106117-e829e14a795f?w=600&h=400&fit=crop',
-      'https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?w=600&h=400&fit=crop',
-      'https://images.unsplash.com/photo-1535320903710-d993d3d77d29?w=600&h=400&fit=crop',
-      'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=600&h=400&fit=crop',
-      'https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=600&h=400&fit=crop',
+      '/images/courses/institutional-1.jpg',
+      '/images/courses/institutional-2.jpg',
+      '/images/courses/institutional-3.jpg',
+      '/images/courses/institutional-4.jpg',
+      '/images/courses/institutional-5.jpg',
     ],
   },
   {
