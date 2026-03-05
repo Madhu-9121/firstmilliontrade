@@ -67,11 +67,11 @@ const courses: Course[] = [
     level: 'Advanced',
     slug: 'algo-derivatives',
     images: [
-      'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop',
-      'https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?w=600&h=400&fit=crop',
-      'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=600&h=400&fit=crop',
-      'https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600&h=400&fit=crop',
-      'https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?w=600&h=400&fit=crop',
+      '/images/courses/algo-1.jpg',
+      '/images/courses/algo-2.jpg',
+      '/images/courses/algo-3.jpg',
+      '/images/courses/algo-4.jpg',
+      '/images/courses/algo-5.jpg',
     ],
   },
   {
