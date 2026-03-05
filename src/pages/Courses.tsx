@@ -103,11 +103,11 @@ const courses: Course[] = [
     level: 'Certification',
     slug: 'nism-certifications',
     images: [
-      'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=600&h=400&fit=crop',
-      'https://images.unsplash.com/photo-1532619675605-1ede6c2ed2b0?w=600&h=400&fit=crop',
-      'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&h=400&fit=crop',
-      'https://images.unsplash.com/photo-1523289333742-be1143f6b766?w=600&h=400&fit=crop',
-      'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&h=400&fit=crop',
+      '/images/courses/nism-1.jpg',
+      '/images/courses/nism-2.jpg',
+      '/images/courses/nism-3.jpg',
+      '/images/courses/nism-4.jpg',
+      '/images/courses/nism-5.jpg',
     ],
   },
 ];
