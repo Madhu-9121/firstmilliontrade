@@ -31,11 +31,11 @@ const courses: Course[] = [
     level: 'Beginner',
     slug: 'wealth-foundations',
     images: [
-      'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=600&h=400&fit=crop',
-      'https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=600&h=400&fit=crop',
-      'https://images.unsplash.com/photo-1553729459-uj0f1e7e6d4a?w=600&h=400&fit=crop',
-      'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop',
-      'https://images.unsplash.com/photo-1518186285589-2f7649de83e0?w=600&h=400&fit=crop',
+      '/images/courses/wealth-1.jpg',
+      '/images/courses/wealth-2.jpg',
+      '/images/courses/wealth-3.jpg',
+      '/images/courses/wealth-4.jpg',
+      '/images/courses/wealth-5.jpg',
     ],
   },
   {
