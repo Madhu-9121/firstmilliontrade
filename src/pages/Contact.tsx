@@ -41,6 +41,19 @@ const contactInfo = [
   },
 ];
 
+const officeLocations = [
+  {
+    title: 'Head Office — USA',
+    address: 'First Million Trade, 800 W Renner Rd, 75080, Richardson, Dallas, TX',
+    mapHref: 'https://maps.google.com/?q=800+W+Renner+Rd+Richardson+TX+75080',
+  },
+  {
+    title: 'India Office — Hyderabad',
+    address: 'First Million Trade, Flat No 9, 2nd Floor, Jabbar Building, Begumpet, SP Road, Hyderabad, 500016',
+    mapHref: 'https://maps.google.com/?q=Begumpet+SP+Road+Hyderabad+500016',
+  },
+];
+
 const socialLinks = [
   { name: 'Facebook', href: 'https://www.facebook.com/share/176CuPCNyn/', icon: '📘' },
   { name: 'YouTube', href: 'https://www.youtube.com/@FirstMillionTrade', icon: '📺' },
