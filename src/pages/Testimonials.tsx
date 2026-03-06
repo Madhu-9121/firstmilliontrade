@@ -1,83 +1,71 @@
-import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Quote, Star, ChevronLeft, ChevronRight } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { Quote, Star, Play } from 'lucide-react';
 import Layout from '@/components/layout/Layout';
-import { Button } from '@/components/ui/button';
 
 const testimonials = [
   {
     id: 1,
-    name: 'Rajesh Kumar',
+    name: 'Arjun Reddy',
     role: 'Software Engineer turned Trader',
-    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face',
-    content: 'First Million Trade transformed my understanding of the markets. The structured approach and mentorship helped me go from complete beginner to consistent profits in just 6 months. The live trading sessions were invaluable.',
+    image: '/images/testimonials/indian-1.jpg',
+    content: 'First Million Trade gave me a complete execution framework. In six months, I moved from random entries to disciplined setup-based trading with measurable consistency.',
     rating: 5,
     course: 'Trading Strategies',
-    profit: '₹4.5L profit in 8 months',
+    profit: '₹4.5L growth in 8 months',
   },
   {
     id: 2,
-    name: 'Priya Sharma',
+    name: 'Sravani Kulkarni',
     role: 'Business Owner',
-    image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&h=150&fit=crop&crop=face',
-    content: 'The algo trading course was exceptional. I can now automate my trading strategies and focus on my business while my portfolio grows systematically. The mentors are patient and explain complex concepts simply.',
+    image: '/images/testimonials/indian-2.jpg',
+    content: 'The algo sessions were practical and easy to apply. I can now run a rules-based approach while focusing on my business operations.',
     rating: 5,
     course: 'Algo Trading',
-    profit: '35% annual returns',
+    profit: '34% annual returns',
   },
   {
     id: 3,
-    name: 'Amit Patel',
+    name: 'Ramesh Varma',
     role: 'Retired Professional',
-    image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face',
-    content: 'Post-retirement, I wanted to grow my savings safely. The Smart Investing course taught me exactly that. Now I manage my own portfolio confidently. The PMS service has been excellent for my larger holdings.',
+    image: '/images/testimonials/indian-3.jpg',
+    content: 'Post-retirement, I needed stable and low-stress portfolio decisions. This course helped me build confidence and maintain a safer allocation model.',
     rating: 5,
     course: 'Smart Investing',
-    profit: 'Secured retirement income',
+    profit: 'Reliable retirement income',
   },
   {
     id: 4,
-    name: 'Sneha Reddy',
+    name: 'Keerthi Nair',
     role: 'Full-time Trader',
-    image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face',
-    content: 'From struggling with losses to becoming a full-time trader - this journey would not have been possible without the mentorship program. The one-on-one sessions helped me fix my psychology and trading habits.',
+    image: '/images/testimonials/indian-4.jpg',
+    content: 'Na discipline ki chala help ayyindi. Weekly review process and psychology coaching helped me reduce overtrading and improve win quality.',
     rating: 5,
     course: 'Mentorship',
     profit: 'Full-time trading career',
   },
   {
     id: 5,
-    name: 'Vikram Singh',
+    name: 'Vivek Sharma',
     role: 'Finance Professional',
-    image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop&crop=face',
-    content: 'Despite my finance background, I lacked practical trading skills. The Market Analysis course filled that gap perfectly. The technical analysis training is world-class.',
+    image: '/images/testimonials/indian-5.jpg',
+    content: 'Even with a finance background, this program improved my practical execution. The structure around risk and scaling positions was a game changer.',
     rating: 5,
     course: 'Market Analysis',
-    profit: '28% portfolio growth',
+    profit: '29% portfolio growth',
   },
   {
     id: 6,
-    name: 'Meera Joshi',
+    name: 'Anitha Rao',
     role: 'Homemaker & Investor',
-    image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=150&h=150&fit=crop&crop=face',
-    content: 'As someone with no prior market knowledge, I was intimidated at first. But the structured curriculum and supportive community made learning enjoyable. Now I confidently manage our family investments.',
+    image: '/images/testimonials/indian-6.jpg',
+    content: 'Market ante bhayam undedi, but now I invest with clarity. The teaching style is simple, supportive, and very practical for beginners.',
     rating: 5,
     course: 'Smart Investing',
-    profit: 'Financial independence',
+    profit: 'Financial confidence achieved',
   },
 ];
 
 export default function Testimonials() {
-  const [currentSlide, setCurrentSlide] = useState(0);
-
-  const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % Math.ceil(testimonials.length / 3));
-  };
-
-  const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + Math.ceil(testimonials.length / 3)) % Math.ceil(testimonials.length / 3));
-  };
-
   return (
     <Layout>
       {/* Hero */}
@@ -155,6 +143,10 @@ export default function Testimonials() {
                       src={testimonial.image}
                       alt={testimonial.name}
                       className="w-12 h-12 rounded-full object-cover ring-2 ring-accent/20"
+                      loading="lazy"
+                      onError={(event) => {
+                        event.currentTarget.src = '/placeholder.svg';
+                      }}
                     />
                     <div>
                       <h4 className="font-semibold">{testimonial.name}</h4>
@@ -196,7 +188,7 @@ export default function Testimonials() {
         </div>
       </section>
 
-      {/* Video Testimonials Placeholder */}
+      {/* Featured Student Video */}
       <section className="py-16">
         <div className="container mx-auto px-4">
           <motion.div
@@ -209,28 +201,33 @@ export default function Testimonials() {
               Watch Their Journey
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              Video testimonials from our successful students sharing their trading transformation stories.
+              A real student story from our community, shared as a silent preview.
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-3 gap-6">
-            {[1, 2, 3].map((i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="aspect-video glass-card rounded-2xl flex items-center justify-center cursor-pointer group hover:shadow-large transition-shadow"
-              >
-                <div className="w-16 h-16 rounded-full bg-accent flex items-center justify-center group-hover:scale-110 transition-transform">
-                  <svg className="w-6 h-6 text-accent-foreground ml-1" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M8 5v14l11-7z" />
-                  </svg>
-                </div>
-              </motion.div>
-            ))}
-          </div>
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="max-w-4xl mx-auto glass-card rounded-2xl overflow-hidden"
+          >
+            <div className="relative aspect-video">
+              <video
+                src="/videos/fmt-video.mp4"
+                className="w-full h-full object-cover"
+                autoPlay
+                loop
+                muted
+                playsInline
+                preload="metadata"
+              />
+              <div className="absolute bottom-4 left-4 inline-flex items-center gap-2 rounded-full bg-background/70 border border-border px-3 py-1.5 text-sm backdrop-blur-sm">
+                <Play className="w-4 h-4 text-accent" />
+                <span>Silent student story</span>
+              </div>
+            </div>
+          </motion.div>
         </div>
       </section>
     </Layout>

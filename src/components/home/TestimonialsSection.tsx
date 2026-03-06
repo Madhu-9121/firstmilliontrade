@@ -6,39 +6,39 @@ import { Button } from '@/components/ui/button';
 const testimonials = [
   {
     id: 1,
-    name: 'Rajesh Kumar',
-    role: 'Software Engineer turned Trader',
-    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face',
-    content: 'First Million Trade transformed my understanding of the markets. The structured approach and mentorship helped me go from complete beginner to consistent profits in just 6 months.',
+    name: 'Arjun Reddy',
+    role: 'IT Professional turned Swing Trader',
+    image: '/images/testimonials/indian-1.jpg',
+    content: 'I joined as a complete beginner and now I follow a clear weekly setup process. The mentorship helped me avoid random trades and focus on consistent execution.',
     rating: 5,
-    profit: '₹4.5L profit in 8 months',
+    profit: '₹3.8L growth in 9 months',
   },
   {
     id: 2,
-    name: 'Priya Sharma',
-    role: 'Business Owner',
-    image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&h=150&fit=crop&crop=face',
-    content: 'The algo trading course was exceptional. I can now automate my trading strategies and focus on my business while my portfolio grows systematically.',
+    name: 'Sravani Kulkarni',
+    role: 'Working Professional',
+    image: '/images/testimonials/indian-2.jpg',
+    content: 'Course lo concepts chaala clear ga explain chesaru. I finally started using strict risk rules, and my confidence in live markets improved a lot.',
     rating: 5,
-    profit: '35% annual returns',
+    profit: 'Steady monthly consistency',
   },
   {
     id: 3,
-    name: 'Amit Patel',
-    role: 'Retired Professional',
-    image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face',
-    content: 'Post-retirement, I wanted to grow my savings safely. The Smart Investing course taught me exactly that. The PMS service has been managing my portfolio excellently.',
+    name: 'Ramesh Varma',
+    role: 'Retired Banker',
+    image: '/images/testimonials/indian-3.jpg',
+    content: 'This program gave me a structured way to protect capital first and grow second. I now take decisions with data and discipline, not emotion.',
     rating: 5,
-    profit: 'Secured retirement income',
+    profit: 'Reliable retirement cashflow',
   },
   {
     id: 4,
-    name: 'Sneha Reddy',
+    name: 'Keerthi Nair',
     role: 'Full-time Trader',
-    image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face',
-    content: 'From struggling with losses to becoming a full-time trader - this journey would not have been possible without the mentorship program. Forever grateful!',
+    image: '/images/testimonials/indian-4.jpg',
+    content: 'Na trading psychology complete ga change ayyindi. With one-on-one review sessions, I fixed my mistakes and moved from losses to stable profitability.',
     rating: 5,
-    profit: 'Full-time trading career',
+    profit: 'Full-time trading income',
   },
 ];
 
@@ -148,6 +148,10 @@ export default function TestimonialsSection() {
                       src={testimonials[current].image}
                       alt={testimonials[current].name}
                       className="w-16 h-16 rounded-full object-cover mb-4 ring-4 ring-accent/20"
+                      loading="lazy"
+                      onError={(event) => {
+                        event.currentTarget.src = '/placeholder.svg';
+                      }}
                     />
                     <h4 className="text-lg font-semibold">{testimonials[current].name}</h4>
                     <p className="text-muted-foreground text-sm">{testimonials[current].role}</p>

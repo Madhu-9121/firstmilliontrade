@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Clock, ArrowRight, CheckCircle2, Play } from 'lucide-react';
+import { ArrowRight, CheckCircle2 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import Layout from '@/components/layout/Layout';
 import { Button } from '@/components/ui/button';
@@ -119,40 +119,51 @@ const levelColors: Record<string, string> = {
   Certification: 'bg-purple-500/10 text-purple-600 dark:text-purple-400',
 };
 
-function CourseImageCarousel({ images }: { images: string[] }) {
+const COURSE_IMAGE_FALLBACK = '/placeholder.svg';
+
+function CourseImageCarousel({ images, courseTitle }: { images: string[]; courseTitle: string }) {
   const [current, setCurrent] = useState(0);
 
   useEffect(() => {
+    if (images.length <= 1) return;
+
     const timer = setInterval(() => {
       setCurrent((prev) => (prev + 1) % images.length);
     }, 3000);
+
     return () => clearInterval(timer);
   }, [images.length]);
 
   return (
-    <div className="relative h-64 md:h-auto overflow-hidden group">
+    <div className="relative h-full min-h-[280px] overflow-hidden group">
       <AnimatePresence mode="wait">
         <motion.img
-          key={current}
-          src={images[current]}
-          alt="Course"
+          key={`${courseTitle}-${current}`}
+          src={images[current] ?? COURSE_IMAGE_FALLBACK}
+          alt={`${courseTitle} course visual ${current + 1}`}
           className="absolute inset-0 w-full h-full object-cover"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.6 }}
+          loading="lazy"
+          onError={(event) => {
+            event.currentTarget.src = COURSE_IMAGE_FALLBACK;
+          }}
         />
       </AnimatePresence>
       <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-      <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5 z-10">
-        {images.map((_, i) => (
-          <button
-            key={i}
-            onClick={() => setCurrent(i)}
-            className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${i === current ? 'bg-white w-5' : 'bg-white/40'}`}
-          />
-        ))}
-      </div>
+      {images.length > 1 && (
+        <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5 z-10">
+          {images.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => setCurrent(i)}
+              className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${i === current ? 'bg-white w-5' : 'bg-white/40'}`}
+            />
+          ))}
+        </div>
+      )}
     </div>
   );
 }
@@ -201,8 +212,8 @@ export default function Courses() {
               >
                 <div className="grid md:grid-cols-2 gap-0">
                   {/* Image Carousel */}
-                  <div className="relative h-64 md:h-auto min-h-[280px]">
-                    <CourseImageCarousel images={course.images} />
+                  <div className="relative h-64 md:h-full min-h-[280px]">
+                    <CourseImageCarousel images={course.images} courseTitle={course.title} />
                     {/* Level & Price overlay */}
                     <div className="absolute bottom-4 left-4 right-4 flex justify-between items-end z-10">
                       <span className={`px-3 py-1 rounded-full text-xs font-semibold ${levelColors[course.level]}`}>
