@@ -168,6 +168,28 @@ export default function Contact() {
                 ))}
               </div>
 
+              {/* Office Locations */}
+              <h3 className="font-semibold mb-4">Our Offices</h3>
+              <div className="space-y-4 mb-8">
+                {officeLocations.map((office) => (
+                  <a
+                    key={office.title}
+                    href={office.mapHref}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-start gap-4 p-4 rounded-xl hover:bg-muted/50 transition-colors group"
+                  >
+                    <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center shrink-0 group-hover:bg-accent/20 transition-colors">
+                      <MapPin className="w-6 h-6 text-accent" />
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-sm">{office.title}</h4>
+                      <p className="text-muted-foreground text-sm">{office.address}</p>
+                    </div>
+                  </a>
+                ))}
+              </div>
+
               {/* Social Links */}
               <h3 className="font-semibold mb-4">Follow Us</h3>
               <div className="flex gap-3">

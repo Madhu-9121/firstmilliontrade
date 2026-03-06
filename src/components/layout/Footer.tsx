@@ -110,6 +110,14 @@ export default function Footer() {
                   firstmilliontrade@gmail.com
                 </a>
               </li>
+              <li className="pt-1">
+                <p className="text-xs font-semibold text-foreground mb-1">🇺🇸 Head Office</p>
+                <p className="text-xs text-muted-foreground">800 W Renner Rd, 75080, Richardson, Dallas, TX</p>
+              </li>
+              <li>
+                <p className="text-xs font-semibold text-foreground mb-1">🇮🇳 India Office</p>
+                <p className="text-xs text-muted-foreground">Flat No 9, 2nd Floor, Jabbar Building, Begumpet, SP Road, Hyderabad, 500016</p>
+              </li>
               {/* Social icons under contact */}
               <li className="pt-2">
                 <div className="flex gap-3">
