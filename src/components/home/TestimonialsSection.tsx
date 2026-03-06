@@ -148,6 +148,10 @@ export default function TestimonialsSection() {
                       src={testimonials[current].image}
                       alt={testimonials[current].name}
                       className="w-16 h-16 rounded-full object-cover mb-4 ring-4 ring-accent/20"
+                      loading="lazy"
+                      onError={(event) => {
+                        event.currentTarget.src = '/placeholder.svg';
+                      }}
                     />
                     <h4 className="text-lg font-semibold">{testimonials[current].name}</h4>
                     <p className="text-muted-foreground text-sm">{testimonials[current].role}</p>

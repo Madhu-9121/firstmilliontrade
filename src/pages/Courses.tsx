@@ -212,8 +212,8 @@ export default function Courses() {
               >
                 <div className="grid md:grid-cols-2 gap-0">
                   {/* Image Carousel */}
-                  <div className="relative h-64 md:h-auto min-h-[280px]">
-                    <CourseImageCarousel images={course.images} />
+                  <div className="relative h-64 md:h-full min-h-[280px]">
+                    <CourseImageCarousel images={course.images} courseTitle={course.title} />
                     {/* Level & Price overlay */}
                     <div className="absolute bottom-4 left-4 right-4 flex justify-between items-end z-10">
                       <span className={`px-3 py-1 rounded-full text-xs font-semibold ${levelColors[course.level]}`}>

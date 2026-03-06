@@ -187,7 +187,7 @@ export default function Testimonials() {
         </div>
       </section>
 
-      {/* Video Testimonials Placeholder */}
+      {/* Featured Student Video */}
       <section className="py-16">
         <div className="container mx-auto px-4">
           <motion.div
@@ -200,28 +200,33 @@ export default function Testimonials() {
               Watch Their Journey
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              Video testimonials from our successful students sharing their trading transformation stories.
+              A real student story from our community, shared as a silent preview.
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-3 gap-6">
-            {[1, 2, 3].map((i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="aspect-video glass-card rounded-2xl flex items-center justify-center cursor-pointer group hover:shadow-large transition-shadow"
-              >
-                <div className="w-16 h-16 rounded-full bg-accent flex items-center justify-center group-hover:scale-110 transition-transform">
-                  <svg className="w-6 h-6 text-accent-foreground ml-1" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M8 5v14l11-7z" />
-                  </svg>
-                </div>
-              </motion.div>
-            ))}
-          </div>
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="max-w-4xl mx-auto glass-card rounded-2xl overflow-hidden"
+          >
+            <div className="relative aspect-video">
+              <video
+                src="/videos/fmt-video.mp4"
+                className="w-full h-full object-cover"
+                autoPlay
+                loop
+                muted
+                playsInline
+                preload="metadata"
+              />
+              <div className="absolute bottom-4 left-4 inline-flex items-center gap-2 rounded-full bg-background/70 border border-border px-3 py-1.5 text-sm backdrop-blur-sm">
+                <Play className="w-4 h-4 text-accent" />
+                <span>Silent student story</span>
+              </div>
+            </div>
+          </motion.div>
         </div>
       </section>
     </Layout>
