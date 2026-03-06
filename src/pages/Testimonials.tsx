@@ -66,6 +66,7 @@ const testimonials = [
 ];
 
 export default function Testimonials() {
+  return (
     <Layout>
       {/* Hero */}
       <section className="pt-32 pb-16 relative overflow-hidden">
