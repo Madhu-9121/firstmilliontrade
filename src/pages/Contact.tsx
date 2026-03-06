@@ -41,6 +41,19 @@ const contactInfo = [
   },
 ];
 
+const officeLocations = [
+  {
+    title: 'Head Office — USA',
+    address: 'First Million Trade, 800 W Renner Rd, 75080, Richardson, Dallas, TX',
+    mapHref: 'https://maps.google.com/?q=800+W+Renner+Rd+Richardson+TX+75080',
+  },
+  {
+    title: 'India Office — Hyderabad',
+    address: 'First Million Trade, Flat No 9, 2nd Floor, Jabbar Building, Begumpet, SP Road, Hyderabad, 500016',
+    mapHref: 'https://maps.google.com/?q=Begumpet+SP+Road+Hyderabad+500016',
+  },
+];
+
 const socialLinks = [
   { name: 'Facebook', href: 'https://www.facebook.com/share/176CuPCNyn/', icon: '📘' },
   { name: 'YouTube', href: 'https://www.youtube.com/@FirstMillionTrade', icon: '📺' },
@@ -150,6 +163,28 @@ export default function Contact() {
                     <div>
                       <h3 className="font-semibold">{item.title}</h3>
                       <p className="text-muted-foreground text-sm">{item.value}</p>
+                    </div>
+                  </a>
+                ))}
+              </div>
+
+              {/* Office Locations */}
+              <h3 className="font-semibold mb-4">Our Offices</h3>
+              <div className="space-y-4 mb-8">
+                {officeLocations.map((office) => (
+                  <a
+                    key={office.title}
+                    href={office.mapHref}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-start gap-4 p-4 rounded-xl hover:bg-muted/50 transition-colors group"
+                  >
+                    <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center shrink-0 group-hover:bg-accent/20 transition-colors">
+                      <MapPin className="w-6 h-6 text-accent" />
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-sm">{office.title}</h4>
+                      <p className="text-muted-foreground text-sm">{office.address}</p>
                     </div>
                   </a>
                 ))}
