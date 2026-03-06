@@ -142,6 +142,10 @@ export default function Testimonials() {
                       src={testimonial.image}
                       alt={testimonial.name}
                       className="w-12 h-12 rounded-full object-cover ring-2 ring-accent/20"
+                      loading="lazy"
+                      onError={(event) => {
+                        event.currentTarget.src = '/placeholder.svg';
+                      }}
                     />
                     <div>
                       <h4 className="font-semibold">{testimonial.name}</h4>
